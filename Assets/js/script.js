@@ -34,6 +34,7 @@ function createTaskCard(task) {
 }
 
 
+// will any array work?
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
