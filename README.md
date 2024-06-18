@@ -8,12 +8,15 @@
 - [3](#)
 - [4](#)
 - [5](#)
+- [License](#license)
 
 ## Visuals
 
-## Support
+## Installation
 
 ## Usage
+
+## Support
 
 ## Acknowledgements
 
