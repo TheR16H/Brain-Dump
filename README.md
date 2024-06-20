@@ -3,11 +3,11 @@
 ## Description
 
 ## Table Of Contents
-- [1](#)
-- [2](#)
-- [3](#)
-- [4](#)
-- [5](#)
+- [Visuals](#visuals)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#support)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Visuals
