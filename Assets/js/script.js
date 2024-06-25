@@ -71,7 +71,7 @@ function handleAddTask(event){
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
 // Btnclicked $(event.target) format here i think 
-filter() function
+// filter() function
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
