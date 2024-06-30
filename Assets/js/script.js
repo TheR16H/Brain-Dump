@@ -74,8 +74,6 @@ var taskListJSON = JSON.stringify(taskList);
 localStorage.setItem('tasks', taskListJSON);
 }
 
-// new
-
 function checkLocalStorage() {
     // dataset initialization (does it exist yet? if not set a value)
     if(localStorage.getItem('tasks')) {
@@ -85,8 +83,6 @@ function checkLocalStorage() {
     }
     return tasksArray;
 }
-
-// new
 
 
 // Todo: create a function to handle deleting a task

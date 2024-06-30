@@ -2,13 +2,7 @@
 // reference not copied.
 
 
-// ? Grab references to the important DOM elements.
-const timeDisplayEl = $('#time-display');
-const projectDisplayEl = $('#project-display');
-const projectFormEl = $('#project-form');
-const projectNameInputEl = $('#project-name-input');
-const projectTypeInputEl = $('#project-type-input');
-const projectDateInputEl = $('#taskDueDate');
+/
 
 // ? Helper function that displays the time, this is called every second in the setInterval function below.
 function displayTime() {
