@@ -2,6 +2,9 @@
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
+var tasksArray = []
+
+
 //code used to make the modal pop up and the btn work.
 document.getElementById('modalForm');
 const btn = document.querySelector('.btn.btn-success')
@@ -55,7 +58,6 @@ function createTaskCard(task) {
 }
 
 
-// will any array work?
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
@@ -67,8 +69,25 @@ createTaskCard();
 function handleAddTask(event){
 // JSON Dataset  --> stringify()  parse()
 //retrieve user input grab value from form put into array store to local storage
-taskList.push(newTask)
+taskList.push(task)
+var taskListJSON = JSON.stringify(taskList);
+localStorage.setItem('tasks', taskListJSON);
 }
+
+// new
+
+function checkLocalStorage() {
+    // dataset initialization (does it exist yet? if not set a value)
+    if(localStorage.getItem('tasks')) {
+       tasksArray = JSON.parse(localStorage.getItem('tasks'));
+    } else {
+       tasksArray = [];
+    }
+    return tasksArray;
+}
+
+// new
+
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
