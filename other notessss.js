@@ -1,6 +1,8 @@
-// ? Grab references to the important DOM elements.
 // these notes come from a past project theyre being used as a 
 // reference not copied.
+
+
+// ? Grab references to the important DOM elements.
 const timeDisplayEl = $('#time-display');
 const projectDisplayEl = $('#project-display');
 const projectFormEl = $('#project-form');

@@ -51,7 +51,7 @@ function createTaskCard(task) {
     });
 
     return taskCard;
-    // add a delete button / addeventlistener
+    // added a delete button / addeventlistener
 }
 
 
@@ -65,7 +65,10 @@ createTaskCard();
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+        // JSON Dataset  --> stringify()  parse()
 //retrieve user input grab value from form put into array store to local storage
+newwTask.push()
+
 }
 
 // Todo: create a function to handle deleting a task

@@ -13,11 +13,13 @@
 ## Visuals
 
 ## Installation
-
+N/A
 ## Usage
 
 ## Support
+<!-- Find me on [Github](https://github.com/TheR16H) to ask any questions or see any of my other works! -->
 
 ## Acknowledgements
+[Jquery docs](https://api.jqueryui.com/draggable/)
 
 ## License 
