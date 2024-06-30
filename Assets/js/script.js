@@ -67,8 +67,7 @@ createTaskCard();
 function handleAddTask(event){
 // JSON Dataset  --> stringify()  parse()
 //retrieve user input grab value from form put into array store to local storage
-newwTask.push()
-
+taskList.push(newTask)
 }
 
 // Todo: create a function to handle deleting a task
