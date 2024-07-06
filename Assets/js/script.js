@@ -61,17 +61,32 @@ function createTaskCard(task) {
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
-// drag and drop jquery
-createTaskCard();
+    taskList.forEach(task => {
+        createTaskCard(task);
+    });
 }
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+    const task
+const
+const
+let task = {
+    title:
+    description
+    date 
+    status 
+    taskId
+}
+
 // JSON Dataset  --> stringify()  parse()
 //retrieve user input grab value from form put into array store to local storage
 taskList.push(task)
 var taskListJSON = JSON.stringify(taskList);
-localStorage.setItem('tasks', taskListJSON);
+localStorage.setItem('tasks', JSON.stringify(taskList));
+createTaskCard(task);
+// var retrievedTaskListJSON = localStorage.getItem('tasks');
+// var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
 }
 
 function checkLocalStorage() {
