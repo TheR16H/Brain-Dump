@@ -2,7 +2,7 @@
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
-var tasksArray = []
+// var tasksArray = []
 
 
 //code used to make the modal pop up and the btn work.
@@ -66,17 +66,20 @@ function renderTaskList() {
     });
 }
 
+let taskList = [];
+
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
-    const task
-const
-const
-let task = {
-    title:
-    description
-    date 
-    status 
-    taskId
+    const taskTitleInput = $('#task-title');
+    const taskDescriptionInput = $('#task-description');
+    const taskDateInput = $('#task-date');
+
+    let task = {
+    title: taskTitleInput.val(),
+    description:  taskDescriptionInput.val(),
+    date:  taskDateInput.val(),
+    status:  $('#task-status').val(),
+    taskId:  $.now()
 }
 
 // JSON Dataset  --> stringify()  parse()
@@ -84,7 +87,7 @@ let task = {
 taskList.push(task)
 var taskListJSON = JSON.stringify(taskList);
 localStorage.setItem('tasks', JSON.stringify(taskList));
-createTaskCard(task);
+    createTaskCard(task);
 // var retrievedTaskListJSON = localStorage.getItem('tasks');
 // var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
 }
