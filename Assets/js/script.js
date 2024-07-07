@@ -25,7 +25,7 @@ function generateTaskId() {
 }
 
 const newId = generateTaskId();
-localStorage.setItem('taskId', taskId);
+localStorage.setItem('taskId', newId);
 console.log(newId);
 
 // Todo: create a function to create a task card
