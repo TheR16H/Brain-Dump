@@ -1,19 +1,18 @@
 # Brain Dump
 
 ## Description
+<!-- [name](link to deployed site) -->
 
 ## Table Of Contents
 - [Visuals](#visuals)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Support](#support)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Visuals
-
-## Installation
-N/A
+<!-- ![Screenshot1](./Assets/05-third-party-apis-homework-demo.gif)
+![gif1](./Assets/05-third-party-apis-homework-demo.gif) -->
 
 ## Usage
 
