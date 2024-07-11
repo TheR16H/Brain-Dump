@@ -66,7 +66,8 @@ function renderTaskList() {
     });
 }
 
-let taskListt = [];
+// edited this array name
+let taskListt = []; 
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
