@@ -95,6 +95,8 @@ function handleAddTask(event){
     const taskTitleInput = $('#task-title');
     const taskDescriptionInput = $('#task-description');
     const taskDateInput = $('#task-date');
+    const deadline = $('#task-deadline').val();
+
 
     const newTask = {
     id: generateTaskId(),
