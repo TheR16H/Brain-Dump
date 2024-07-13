@@ -69,6 +69,15 @@ function renderTaskList() {
         const taskCard = createTaskCard(task);
         appendTaskCard(taskCard, task);
     });
+
+    $('.task-card').draggable({
+        revert: 'invalid',
+        stack: '.task-card',
+        helper: 'clone',
+        start: function(event, ui) {
+            $(ui.helper).addClass('ui-helper');
+        }
+    });
 }
 
 // edited this array name
