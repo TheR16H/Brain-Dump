@@ -2,8 +2,6 @@
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
-// var tasksArray = []
-
 
 //code used to make the modal pop up and the btn work.
 document.getElementById('modalForm');
@@ -24,15 +22,19 @@ function generateTaskId() {
     return uniqueId; 
 }
 
-const newId = generateTaskId();
-localStorage.setItem('taskId', newId);
-console.log(newId);
+function generateTaskId() {
+    const randomid = Math.random().toString(16).slice(2);
+    const uniqueId = 'id_' + randomid;
+    return uniqueId;
+}
+
+
 
 // Todo: create a function to create a task card
 function appendTaskCard(taskCard, task) {
     if (task.status === 'to-do') {
-        $('#todo-cards').appened(taskCard);
-    } else if (task.status === 'in-progress') {
+        $('#todo-cards').append(taskCard);
+        } else if (task.status === 'in-progress') {
         $('#in-progress-cards').append(taskCard);
     } else if (task.status === 'done') { 
         $('#done-cards').append(taskCard);
@@ -51,7 +53,8 @@ function createTaskCard(task) {
             <button class="btn ${buttonClass} delete-task" data-id="${task.id}">Delete</button>
         </div>
     </div>`
-}
+};
+
     // Create a delete button with the class delete-task
     const deleteButton = $('<button>')
         .addClass('btn btn-danger delete-task') // Changed class to delete-task
@@ -62,19 +65,13 @@ function createTaskCard(task) {
 
     // Add an event listener to the delete button for task deletion
     deleteButton.on('click', function() {
-        // Get the task ID from the task card
-        const taskId = taskCard.attr('taskId');
-        
-        // Perform task deletion logic here (e.g., remove task card from UI and update data)
-
-        // Optionally, you can remove the task card from the UI
+        const taskId = taskCard.attr('id').split('-')[1];
         taskCard.remove();
+        taskList = taskList.filter(task => task.id !== taskId);
+        localStorage.setItem('tasks', JSON.stringify(taskList));
     });
 
     return taskCard;
-
-
-
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
