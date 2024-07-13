@@ -62,19 +62,21 @@ function renderTaskList() {
 
 function handleAddTask(event) {
     event.preventDefault();
-    const taskTitleInput = $('#task-title');
-    const taskDescriptionInput = $('#task-description');
-    const taskDateInput = $('#task-date');
-    const deadline = $('#task-deadline').val();
 
+    const taskTitleInput = $('#name').val();
+    const taskDescriptionInput = $('#content').val();
+    const taskDateInput = $('#date').val();
+    const deadline = $('#date').val();
 
+    const newTaskId = generateTaskId();
+    
     const newTask = {
-    id: generateTaskId(),
-    title: taskTitleInput.val(),
-    description:  taskDescriptionInput.val(),
-    date:  taskDateInput.val(),
-    deadline: deadline,
-    status:  'to-do'
+        id: newTaskId,
+        title: taskTitleInput,
+        description: taskDescriptionInput,
+        date: taskDateInput,
+        deadline: deadline,
+        status: 'to-do'
 };
 
 // JSON Dataset  --> stringify()  parse()
@@ -82,9 +84,9 @@ function handleAddTask(event) {
 taskList.push(newTask);
 localStorage.setItem('tasks', JSON.stringify(taskList));
 localStorage.setItem('nextId', JSON.stringify(nextId));
-$('#addTaskForm')[0].reset();
- $('#formModal').modal('hide');
-  renderTaskList();
+$('#modalForm')[0].reset();
+modal.style.display = 'none';
+renderTaskList();
   // var retrievedTaskListJSON = localStorage.getItem('tasks');
 // var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
 }
