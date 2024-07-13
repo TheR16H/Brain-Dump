@@ -63,7 +63,7 @@ console.log(newId);
 // let taskListt = []; 
 
 // Todo: create a functican on to handle adding a new task
-function handleAddTask(event){
+function handleAddTask(event){};
     
 
 function checkLocalStorage() {

@@ -27,21 +27,22 @@
     <!-- Todo: Create a modal with a form to add tasks -->
     <div id="modal" class="modal">
       <div class="modal-content">
-        <span id="close">X</span>
-        <form id="modalForm"><h1> Add Task</h1>
-        <label for="name">Task Name</label>
-          <input type="text" id="name" name="name">
+        <span id="close" class="close-btn">X</span>
+        <form id="modalForm" class="task-form">
+          <h1>Add Task</h1>
+          <label for="name">Task Name</label>
+          <input type="text" id="name" name="name" class="task-input">
           <label for="date">Task Due Date</label>
-          <input type="date" id="date" date="date">
+          <input type="date" id="date" name="date" class="task-input">
           <label for="content">Task Description</label>
-          <input type="text" id="content" name="content"> 
-          <button class="submit" type=""submit>Add Task</button>
+          <input type="text" id="content" name="content" class="task-input">
+          <button class="submit-btn" type="submit">Add Task</button>
         </form>
       </div>
     </div>
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
-        <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
+        <div id="to-do" class="card border-light mb-3 lane flex-grow-1 task-lane">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">To Do</h2>
           </div>
@@ -51,7 +52,7 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 d-flex">
-        <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
+        <div id="in-progress" class="card border-light mb-3 lane flex-grow-1 task-lane">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">In Progress</h2>
           </div>
@@ -61,7 +62,7 @@
         </div>
         </div>
         <div class="col-12 col-lg-4 d-flex">
-          <div id="done" class="card border-light mb-3 lane flex-grow-1">
+          <div id="done" class="card border-light mb-3 lane flex-grow-1 task-lane">
             <div class="card-header bg-white">
               <h2 class="card-title mb-1">Done</h2>
             </div>
