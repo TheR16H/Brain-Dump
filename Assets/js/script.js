@@ -54,11 +54,7 @@ function createTaskCard(task) {
     });
 
     return taskCard;
-    });
-
-    return taskCard;
-    // added a delete button / addeventlistener
-}
+    }
 
 
 
@@ -91,29 +87,33 @@ function renderTaskList() {
 }
 
 // edited this array name
-let taskListt = []; 
+// let taskListt = []; 
 
 // Todo: create a functican on to handle adding a new task
 function handleAddTask(event){
+    event.preventDefault();
     const taskTitleInput = $('#task-title');
     const taskDescriptionInput = $('#task-description');
     const taskDateInput = $('#task-date');
 
-    let task = {
+    const newTask = {
+    id: generateTaskId(),
     title: taskTitleInput.val(),
     description:  taskDescriptionInput.val(),
     date:  taskDateInput.val(),
-    status:  $('#task-status').val(),
-    taskId:  $.now()
-}
+    deadline: deadline,
+    status:  'to-do'
+};
 
 // JSON Dataset  --> stringify()  parse()
 //retrieve user input grab value from form put into array store to local storage
-taskList.push(task)
-var taskListJSON = JSON.stringify(taskList);
+taskList.push(newTask);
 localStorage.setItem('tasks', JSON.stringify(taskList));
-    createTaskCard(task);
-// var retrievedTaskListJSON = localStorage.getItem('tasks');
+localStorage.setItem('nextId', JSON.stringify(nextId));
+$('#addTaskForm')[0].reset();
+ $('#formModal').modal('hide');
+  renderTaskList();
+  // var retrievedTaskListJSON = localStorage.getItem('tasks');
 // var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
 }
 
