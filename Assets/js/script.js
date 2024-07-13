@@ -30,10 +30,18 @@ console.log(newId);
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-    const taskCard = $('<div>')
-        .addClass('card task-card draggable my-3')
-        .attr('taskId', task.id);
+    const { deadlineClass, textClass, buttonClass } = determineClasses(task);
 
+    // Return the HTML for the task card
+    return `<div id="task-${task.id}" class="task-card card mb-3 ${deadlineClass}">
+            <div class="card-header ${textClass}"><h4>${task.title}</h4></div>
+        <div class="card-body">
+            <p class="card-text ${textClass}">${task.description}</p>
+            <p class="card-text ${textClass}">Deadline: ${task.deadline}</p>
+            <button class="btn ${buttonClass} delete-task" data-id="${task.id}">Delete</button>
+        </div>
+    </div>`
+}
     // Create a delete button with the class delete-task
     const deleteButton = $('<button>')
         .addClass('btn btn-danger delete-task') // Changed class to delete-task
@@ -54,7 +62,7 @@ function createTaskCard(task) {
     });
 
     return taskCard;
-    }
+
 
 
 
@@ -142,7 +150,15 @@ function handleDeleteTask(event){
 
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
-    const taskId = parseInt(ui.draggable.attr)
+    const taskId = parseInt(ui.draggable.attr('id').split('-')[1]);
+    const newStatus = $(this).attr('id');
+
+    taskList = taskList.map(task => {
+        if (task.id === taskId) {
+            task.status = newStatus;
+        }
+        return task;
+    });
 //  sortable
 //update status + color
 }
