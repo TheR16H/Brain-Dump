@@ -4,8 +4,8 @@ let nextId = JSON.parse(localStorage.getItem("nextId"));
 
 
 //code used to make the modal pop up and the btn work.
-document.getElementById('modalForm');
-const btn = document.querySelector('.btn.btn-success')
+const modal = document.getElementById('modalForm');
+const btn = document.querySelector('.btn.btn-success');
 const closeBtn = modal.querySelector('.close');
 btn.addEventListener('click', function(){
     modal.style.display = 'block';
@@ -13,6 +13,12 @@ btn.addEventListener('click', function(){
 
 closeBtn.addEventListener('click', function(){
     modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
 });
 
 // Todo: create a function to generate a unique task id
@@ -169,12 +175,13 @@ function handleDrop(event, ui) {
 }
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
+console.log(taskList); // Check the value of taskList
+
 $(document).ready(function () {
-    if (taskList != []) {
+    if (taskList && taskList.length > 0) {
         renderTaskList();
     }
 });
-
 // Include the datepicker initialization code here
 $(function () {
     $('#task-deadline').datepicker({
