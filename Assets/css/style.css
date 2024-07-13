@@ -50,3 +50,17 @@ margin: 0;
 #close:hover {
   color: black;
 }
+
+.swim-lanes {
+  min-height: 60vh;
+}
+.taskcard, .task-card {
+  margin: 0 auto;
+}
+
+.task-card:hover {
+  cursor: grab;
+}
+.taskcard:hover {
+  cursor: grab;
+}

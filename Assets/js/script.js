@@ -22,22 +22,21 @@ function appendTaskCard(taskCard, task) {
 
 function createTaskCard(task) {
     const { id, title, description, deadline } = task;
-
-    // Return the HTML for the task card
+    
     const taskCardHTML = `
-    <div id="task-${id}" class="task-card card mb-3 ${deadlineClass}">
-        <div class="card-header ${textClass}">
-            <h4>${title}</h4>
+        <div id="task-${id}" class="task-card card mb-3">
+            <div class="card-header">
+                <h4>${title}</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">${description}</p>
+                <p class="card-text">Deadline: ${deadline}</p>
+                <button class="btn delete-task" data-id="${id}">Delete</button>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text ${textClass}">${description}</p>
-            <p class="card-text ${textClass}">Deadline: ${deadline}</p>
-            <button class="btn ${buttonClass} delete-task" data-id="${id}">Delete</button>
-        </div>
-    </div>
-`;
-return taskCardHTML;
-
+    `;
+    
+    return taskCardHTML;
 }
 
 function renderTaskList() {
@@ -94,7 +93,7 @@ function handleAddTask(event) {
 
     const taskTitleInput = $('#name').val();
     const taskDescriptionInput = $('#content').val();
-    const taskDateInput = $('#date').val();
+    // const taskDateInput = $('#date').val(); // 
     const deadline = $('#date').val();
 
     const newTaskId = generateTaskId();
@@ -103,7 +102,8 @@ function handleAddTask(event) {
         id: newTaskId,
         title: taskTitleInput,
         description: taskDescriptionInput,
-        deadline: deadline, // Update to 'deadline' instead of 'date'
+        // date: taskDateInput, // Commented out
+        deadline: deadline,
         status: 'to-do'
     };
 
