@@ -90,20 +90,15 @@ function renderTaskList() {
 
 function handleAddTask(event) {
     event.preventDefault();
-
     const taskTitleInput = $('#name').val();
     const taskDescriptionInput = $('#content').val();
-    // const taskDateInput = $('#date').val(); // 
-    const deadline = $('#date').val();
-
+    const deadline = $('#date').val(); // Use deadline instead of taskDateInput
     const newTaskId = generateTaskId();
-    
     const newTask = {
         id: newTaskId,
         title: taskTitleInput,
         description: taskDescriptionInput,
-        // date: taskDateInput, // Commented out
-        deadline: deadline,
+        deadline: deadline, // Use deadline instead of taskDateInput
         status: 'to-do'
     };
 
@@ -120,22 +115,21 @@ function handleAddTask(event) {
  function checkLocalStorage() {
        // dataset initialization (does it exist yet? if not set a value)
        if(localStorage.getItem('tasks')) {
-        tasksArray = JSON.parse(localStorage.getItem('tasks'));
+        newTask = JSON.parse(localStorage.getItem('tasks'));
      } else {
-        tasksArray = [];
+        newTask = [];
      }
-     return tasksArray;
+     return newTask;
  } //----------
  
+ taskList = checkLocalStorage();
 
 
-function handleDeleteTask(event) {
+ function handleDeleteTask(event) {
     const taskId = $(event.target).data('id');
     taskList = taskList.filter(task => task.id !== taskId);
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
-    // Btnclicked $(event.target) format here i think 
-// filter() function
 }
 
 function handleDrop(event, ui) {
@@ -184,6 +178,6 @@ $(function () {
     $('#task-deadline').datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'yy-mm-dd' // Use yy-mm-dd format
     });
 });
