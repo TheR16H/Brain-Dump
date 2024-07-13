@@ -19,14 +19,12 @@ closeBtn.addEventListener('click', function(){
 function generateTaskId() {
     const randomid = Math.random().toString(16).slice(2);
     const uniqueId = 'id_' + randomid;
-    return uniqueId; 
-}
-
-function generateTaskId() {
-    const randomid = Math.random().toString(16).slice(2);
-    const uniqueId = 'id_' + randomid;
     return uniqueId;
 }
+
+const newId = generateTaskId();
+localStorage.setItem('taskId', newId);
+console.log(newId);
 
 
 
@@ -172,14 +170,16 @@ function handleDrop(event, ui) {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
-if (taskList != []) {
-    renderTaskList();
-}
+    if (taskList != []) {
+        renderTaskList();
+    }
 });
 
+// Include the datepicker initialization code here
 $(function () {
-    $('#date').datepicker({
+    $('#task-deadline').datepicker({
         changeMonth: true,
         changeYear: true,
+        dateFormat: 'yy-mm-dd'
     });
 });
