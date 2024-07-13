@@ -21,24 +21,16 @@ function appendTaskCard(taskCard, task) {
 }
 
 function createTaskCard(task) {
-    const { id, title, description, deadline } = task;
-    
-    const taskCardHTML = `
-        <div id="task-${id}" class="task-card card mb-3">
-            <div class="card-header">
-                <h4>${title}</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">${description}</p>
-                <p class="card-text">Deadline: ${deadline}</p>
-                <button class="btn delete-task" data-id="${id}">Delete</button>
-            </div>
+    const taskCardEl =
+    $(`<div class = "task-card card m-4 mt-2" id=${task.taskId}>
+        <h5 class="card-header">${task.title}</h5>
+        <div class="card-body">
+          <p class="card-text">${task.description}</p>
+          <p class="card-text">${task.date}</p>
+          <button class="btn btn-danger border border-white delete">Delete</button>
         </div>
-    `;
-    
-    return taskCardHTML;
-}
-
+      </div>`);
+    }
 function renderTaskList() {
     // Clear existing task cards in each lane
     $('#todo-cards').empty();
@@ -87,30 +79,31 @@ function renderTaskList() {
         });
     });
 }
-
+ 
+const submitTask = $('#submit-task');
+submitTask.on('click', function(event) {
+    event.preventDefault();
+    handleAddTask(event);
+});
 function handleAddTask(event) {
     event.preventDefault();
     const taskTitleInput = $('#name').val();
     const taskDescriptionInput = $('#content').val();
-    const deadline = $('#date').val(); // Use deadline instead of taskDateInput
+    const deadline = $('#date').val();
     const newTaskId = generateTaskId();
     const newTask = {
         id: newTaskId,
         title: taskTitleInput,
         description: taskDescriptionInput,
-        deadline: deadline, // Use deadline instead of taskDateInput
+        deadline: deadline,
         status: 'to-do'
     };
-
     taskList.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
     $('#modalForm')[0].reset();
     modal.style.display = 'none';
 }
-  // var retrievedTaskListJSON = localStorage.getItem('tasks');
-// var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
-
 
 function checkLocalStorage() {
     let newTask;
@@ -131,10 +124,6 @@ function checkLocalStorage() {
     renderTaskList();
 }
 
-// taskCardElement.find('.delete-task').on('click', function() {
-//     const taskId = $(this).data('id');
-//     handleDeleteTask(taskId);
-// }.bind(this));
 
 function handleDrop(event, ui) {
     const taskId = parseInt(ui.draggable.attr('id').split('-')[1]);
@@ -186,3 +175,5 @@ $(function () {
         dateFormat: 'yy-mm-dd' // Use yy-mm-dd format
     });
 });
+
+
