@@ -29,6 +29,16 @@ localStorage.setItem('taskId', newId);
 console.log(newId);
 
 // Todo: create a function to create a task card
+function appendTaskCard(taskCard, task) {
+    if (task.status === 'to-do') {
+        $('#todo-cards').appened(taskCard);
+    } else if (task.status === 'in-progress') {
+        $('#in-progress-cards').append(taskCard);
+    } else if (task.status === 'done') { 
+        $('#done-cards').append(taskCard);
+    }
+}
+
 function createTaskCard(task) {
     const { deadlineClass, textClass, buttonClass } = determineClasses(task);
 
