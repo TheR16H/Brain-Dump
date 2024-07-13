@@ -47,9 +47,8 @@ function renderTaskList() {
 
     // Render task cards for each task in the taskList
     taskList.forEach(task => {
-        const taskCard = createTaskCard(task); // Create the task card HTML
-        const taskCardElement = $(taskCard); // Convert the HTML string to a jQuery element
-
+        const taskCard = createTaskCard(task); 
+        const taskCardElement = $(taskCard); 
         // Append the task card to the corresponding lane based on task status
         switch (task.status) {
             case 'to-do':
@@ -82,8 +81,9 @@ function renderTaskList() {
         });
 
         // Add event listener for deleting tasks
-        taskCardElement.find('.delete-task').on('click', function() {
-            handleDeleteTask(task.id);
+        taskCardElement.on('click', '.delete-task', function() {
+            const taskId = $(this).data('id');
+            handleDeleteTask(taskId);
         });
     });
 }
@@ -131,10 +131,10 @@ function checkLocalStorage() {
     renderTaskList();
 }
 
-taskCardElement.find('.delete-task').on('click', function() {
-    const taskId = $(this).data('id');
-    handleDeleteTask(taskId);
-});
+// taskCardElement.find('.delete-task').on('click', function() {
+//     const taskId = $(this).data('id');
+//     handleDeleteTask(taskId);
+// }.bind(this));
 
 function handleDrop(event, ui) {
     const taskId = parseInt(ui.draggable.attr('id').split('-')[1]);
@@ -145,7 +145,10 @@ function handleDrop(event, ui) {
             task.status = newStatus;
         }
         return task;
-    });}
+    });
+    renderTaskList();
+}
+
 
 // Event Listeners
 function toggleModal() {
@@ -173,9 +176,7 @@ window.addEventListener('click', function(event) {
 
 // Document Ready
 $(document).ready(function () {
-    if (taskList && taskList.length > 0) {
-        renderTaskList();
-    }
+    renderTaskList();
 });
 
 $(function () {
