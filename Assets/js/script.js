@@ -34,9 +34,9 @@ function createTaskCard(task) {
         .addClass('card task-card draggable my-3')
         .attr('taskId', task.id);
 
-    // Create a delete button
+    // Create a delete button with the class delete-task
     const deleteButton = $('<button>')
-        .addClass('btn btn-danger delete-button')
+        .addClass('btn btn-danger delete-task') // Changed class to delete-task
         .text('Delete');
 
     // Add the delete button to the task card
@@ -51,6 +51,9 @@ function createTaskCard(task) {
 
         // Optionally, you can remove the task card from the UI
         taskCard.remove();
+    });
+
+    return taskCard;
     });
 
     return taskCard;
@@ -78,12 +81,19 @@ function renderTaskList() {
             $(ui.helper).addClass('ui-helper');
         }
     });
+
+    $('.lane').droppable({
+        accept: '.task-card',
+        drop: handleDrop
+    });
+
+    $('.delete-task').on('click', handleDeleteTask);
 }
 
 // edited this array name
 let taskListt = []; 
 
-// Todo: create a function to handle adding a new task
+// Todo: create a functican on to handle adding a new task
 function handleAddTask(event){
     const taskTitleInput = $('#task-title');
     const taskDescriptionInput = $('#task-description');
