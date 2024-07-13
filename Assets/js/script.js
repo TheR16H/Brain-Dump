@@ -103,22 +103,19 @@ function handleAddTask(event) {
         id: newTaskId,
         title: taskTitleInput,
         description: taskDescriptionInput,
-        date: taskDateInput,
-        deadline: deadline,
+        deadline: deadline, // Update to 'deadline' instead of 'date'
         status: 'to-do'
-};
+    };
 
-// JSON Dataset  --> stringify()  parse()
-//retrieve user input grab value from form put into array store to local storage
-taskList.push(newTask);
-localStorage.setItem('tasks', JSON.stringify(taskList));
-localStorage.setItem('nextId', JSON.stringify(nextId));
-$('#modalForm')[0].reset();
-modal.style.display = 'none';
-renderTaskList();
+    taskList.push(newTask);
+    localStorage.setItem('tasks', JSON.stringify(taskList));
+    renderTaskList();
+    $('#modalForm')[0].reset();
+    modal.style.display = 'none';
+}
   // var retrievedTaskListJSON = localStorage.getItem('tasks');
 // var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
-}
+
 
  function checkLocalStorage() {
        // dataset initialization (does it exist yet? if not set a value)
