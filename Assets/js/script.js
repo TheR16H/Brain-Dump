@@ -112,25 +112,29 @@ function handleAddTask(event) {
 // var retrievedTaskList = JSON.parse(retrievedTaskListJSON);
 
 
- function checkLocalStorage() {
-       // dataset initialization (does it exist yet? if not set a value)
-       if(localStorage.getItem('tasks')) {
+function checkLocalStorage() {
+    let newTask;
+    if (localStorage.getItem('tasks')) {
         newTask = JSON.parse(localStorage.getItem('tasks'));
-     } else {
+    } else {
         newTask = [];
-     }
-     return newTask;
- } //----------
+    }
+    return newTask;
+}
  
  taskList = checkLocalStorage();
 
 
- function handleDeleteTask(event) {
-    const taskId = $(event.target).data('id');
+ function handleDeleteTask(taskId) {
     taskList = taskList.filter(task => task.id !== taskId);
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
 }
+
+taskCardElement.find('.delete-task').on('click', function() {
+    const taskId = $(this).data('id');
+    handleDeleteTask(taskId);
+});
 
 function handleDrop(event, ui) {
     const taskId = parseInt(ui.draggable.attr('id').split('-')[1]);
