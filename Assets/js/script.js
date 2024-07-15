@@ -68,10 +68,6 @@ function renderTaskList() {
             start: function(event, ui) {
                 $(ui.helper).addClass('ui-helper');
             }
-           /* helper: function(event) {
-                console.log("event.target");
-                console.log("touched elem")
-            } */ 
         });
      
 
@@ -85,13 +81,6 @@ function renderTaskList() {
 }
  
 const submitTask = $('#modalForm');
-/*
-submitTask.on('click', function(event) {
-    console.log("Submitting Data")
-    event.preventDefault();
-    handleAddTask(event);
-});
-*/
 submitTask.on('submit', handleAddTask);
 
 function handleAddTask(event) {
@@ -136,24 +125,6 @@ function checkLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
 }
-
-
-// function handleDrop(event, ui) {
-//     console.log("Dropped")
-//     const taskId = parseInt(ui.draggable.data('task-id'));
-//     const newStatus = $(this).attr('id');
-
-//     console.log("Task Id: ", taskId)
-//     console.log("Status: ", newStatus)
-
-//     taskList = taskList.map(task => {
-//         if (task.id === taskId) {
-//             task.status = newStatus;
-//         }
-//         return task;
-//     });
-//     renderTaskList();
-// }
 
 
 function handleDrop(event, ui) {
