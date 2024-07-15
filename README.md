@@ -11,8 +11,8 @@ The purpose of this simple Kanban board titled <!-- [Brain Dump](link to deploye
 - [License](#license)
 
 ## Visuals
-<!-- ![Screenshot1](./Assets/05-third-party-apis-homework-demo.gif)
-![gif1](./Assets/05-third-party-apis-homework-demo.gif) -->
+![Screenshot1](./Assets/images/Visual.png)
+![gif1](./Assets/images/Visual2.gif)
 
 ## Usage
 Simply type in the title/description/deadline of your task and then you can drag it and drop it based off of how far you are in its specific development.
