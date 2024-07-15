@@ -1,7 +1,7 @@
 # Brain Dump
 
 ## Description
-The purpose of this simple Kanban board titled <!-- [Brain Dump](link to deployed site) --> is to so you can type out your objectives / things you need to do in the coming days! if its within 2/3 the task will turn yellow. if the deadline is today the task will appear read and anything beyond the task will be white so it's easy to differentiate! 
+The purpose of this simple Kanban board titled [Brain Dump](https://ther16h.github.io/Brain-Dump/) is to so you can type out your objectives / things you need to do in the coming days! if its within 2/3 the task will turn yellow. if the deadline is today the task will appear read and anything beyond the task will be white so it's easy to differentiate! 
 
 ## Table Of Contents
 - [Visuals](#visuals)
