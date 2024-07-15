@@ -21,7 +21,7 @@ Simply type in the title/description/deadline of your task and then you can drag
 Find me on [Github](https://github.com/TheR16H) to ask any questions or see any of my other works!
 
 ## Acknowledgements
-[Jquery docs](https://api.jqueryui.com/draggable/)
+[Jquery docs](https://api.jqueryui.com/draggable/).
 
 ## License 
 MIT License
