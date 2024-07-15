@@ -1,4 +1,6 @@
 // moving to condense 
+
+
 // Retrieve tasks and nextId from localStorage (don't edit this)
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));

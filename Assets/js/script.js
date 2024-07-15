@@ -22,15 +22,17 @@ function appendTaskCard(taskCard, task) {
 
 function createTaskCard(task) {
     const taskCardEl =
-    $(`<div class = "task-card card m-4 mt-2" id=${task.taskId}>
+    $(`<div class = "task-card card m-4 mt-2" id=${task.id}>
         <h5 class="card-header">${task.title}</h5>
         <div class="card-body">
           <p class="card-text">${task.description}</p>
-          <p class="card-text">${task.date}</p>
-          <button class="btn btn-danger border border-white delete">Delete</button>
+          <p class="card-text">${task.deadline}</p>
+          <button class="btn btn-danger border border-white delete" data-task-id=${task.id}>Delete</button>
         </div>
       </div>`);
+      return taskCardEl
     }
+
 function renderTaskList() {
     // Clear existing task cards in each lane
     $('#todo-cards').empty();
@@ -64,28 +66,35 @@ function renderTaskList() {
             start: function(event, ui) {
                 $(ui.helper).addClass('ui-helper');
             }
+           /* helper: function(event) {
+                console.log("event.target");
+                console.log("touched elem")
+            } */ 
         });
-
-        // Make lanes droppable for task cards
-        $('.lane').droppable({
-            accept: '.task-card',
-            drop: handleDrop
-        });
+     
 
         // Add event listener for deleting tasks
-        taskCardElement.on('click', '.delete-task', function() {
-            const taskId = $(this).data('id');
+        taskCardElement.on('click', '.delete', function() {
+            console.log("Click")
+            const taskId = $(this).data('task-id');
             handleDeleteTask(taskId);
         });
     });
 }
  
-const submitTask = $('#submit-task');
+const submitTask = $('#modalForm');
+/*
 submitTask.on('click', function(event) {
+    console.log("Submitting Data")
     event.preventDefault();
     handleAddTask(event);
 });
+*/
+submitTask.on('submit', handleAddTask);
+
 function handleAddTask(event) {
+    console.log("data passed: ", event);
+
     event.preventDefault();
     const taskTitleInput = $('#name').val();
     const taskDescriptionInput = $('#content').val();
@@ -98,6 +107,7 @@ function handleAddTask(event) {
         deadline: deadline,
         status: 'to-do'
     };
+    console.log("New task: ", newTask)
     taskList.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
@@ -119,6 +129,7 @@ function checkLocalStorage() {
 
 
  function handleDeleteTask(taskId) {
+    console.log(taskId)
     taskList = taskList.filter(task => task.id !== taskId);
     localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
@@ -126,8 +137,12 @@ function checkLocalStorage() {
 
 
 function handleDrop(event, ui) {
-    const taskId = parseInt(ui.draggable.attr('id').split('-')[1]);
+    console.log("Dropped")
+    const taskId = parseInt(ui.draggable.data('task-id'));
     const newStatus = $(this).attr('id');
+
+    console.log("Task Id: ", taskId)
+    console.log("Status: ", newStatus)
 
     taskList = taskList.map(task => {
         if (task.id === taskId) {
@@ -141,6 +156,7 @@ function handleDrop(event, ui) {
 
 // Event Listeners
 function toggleModal() {
+    console.log("Toggle")
     if (modal.style.display === 'none') {
         modal.style.display = 'block';
     } else {
@@ -166,6 +182,13 @@ window.addEventListener('click', function(event) {
 // Document Ready
 $(document).ready(function () {
     renderTaskList();
+
+    // Make lanes droppable for task cards
+    $('.lane').droppable({
+        accept: '.task-card',
+        drop: handleDrop
+
+    });
 });
 
 $(function () {
