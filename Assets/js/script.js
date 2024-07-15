@@ -21,8 +21,21 @@ function appendTaskCard(taskCard, task) {
 }
 
 function createTaskCard(task) {
+    const today = dayjs();
+    const deadlineDate = dayjs(task.deadline, 'YYYY-MM-DD');
+    const daysUntilDeadline = deadlineDate.diff(today, 'day');
+
+    let deadlineClass = '';
+    if (daysUntilDeadline < 0) {
+        deadlineClass = 'bg-danger'; // Red for passed deadline
+    } else if (daysUntilDeadline === 0) {
+        deadlineClass = 'bg-danger'; // Red for today's deadline
+    } else if (daysUntilDeadline <= 2) {
+        deadlineClass = 'bg-warning'; // Yellow for deadline coming up in 2 days or less
+    }
+
     const taskCardEl =
-    $(`<div class = "task-card card m-4 mt-2" id=${task.id}>
+    $(`<div class="task-card card m-4 mt-2 ${deadlineClass}" id=${task.id}>
         <h5 class="card-header">${task.title}</h5>
         <div class="card-body">
           <p class="card-text">${task.description}</p>
@@ -30,20 +43,20 @@ function createTaskCard(task) {
           <button class="btn btn-danger border border-white delete" data-task-id=${task.id}>Delete</button>
         </div>
       </div>`);
-      return taskCardEl
-    }
+      
+    return taskCardEl;
+}
 
 function renderTaskList() {
-    // Clear existing task cards in each lane
     $('#todo-cards').empty();
     $('#in-progress-cards').empty();
     $('#done-cards').empty();
-
-    // Render task cards for each task in the taskList
+    
     taskList.forEach(task => {
         const taskCard = createTaskCard(task); 
         const taskCardElement = $(taskCard); 
-        // Append the task card to the corresponding lane based on task status
+        
+        // Add task card to the appropriate column
         switch (task.status) {
             case 'to-do':
                 $('#todo-cards').append(taskCardElement);
@@ -58,11 +71,8 @@ function renderTaskList() {
                 break;
         }
         
-        // Make task cards draggable
         taskCardElement.draggable({
             revert: 'invalid',
-            // stack: '.task-card',
-            // helper: 'clone',
             zIndex: 100,
             appendTo: '.drop',
             start: function(event, ui) {
