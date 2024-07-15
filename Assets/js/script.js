@@ -61,8 +61,10 @@ function renderTaskList() {
         // Make task cards draggable
         taskCardElement.draggable({
             revert: 'invalid',
-            stack: '.task-card',
-            helper: 'clone',
+            // stack: '.task-card',
+            // helper: 'clone',
+            zIndex: 100,
+            appendTo: '.drop',
             start: function(event, ui) {
                 $(ui.helper).addClass('ui-helper');
             }
@@ -136,20 +138,38 @@ function checkLocalStorage() {
 }
 
 
+// function handleDrop(event, ui) {
+//     console.log("Dropped")
+//     const taskId = parseInt(ui.draggable.data('task-id'));
+//     const newStatus = $(this).attr('id');
+
+//     console.log("Task Id: ", taskId)
+//     console.log("Status: ", newStatus)
+
+//     taskList = taskList.map(task => {
+//         if (task.id === taskId) {
+//             task.status = newStatus;
+//         }
+//         return task;
+//     });
+//     renderTaskList();
+// }
+
+
 function handleDrop(event, ui) {
-    console.log("Dropped")
-    const taskId = parseInt(ui.draggable.data('task-id'));
-    const newStatus = $(this).attr('id');
+    const taskId = ui.draggable.attr('id'); // Get the task ID from the dragged task card
+    const newStatus = $(this).attr('id'); // Get the new status from the lane where the task card is dropped
 
-    console.log("Task Id: ", taskId)
-    console.log("Status: ", newStatus)
-
+    // Update the task status in the taskList
     taskList = taskList.map(task => {
         if (task.id === taskId) {
             task.status = newStatus;
         }
         return task;
     });
+
+    // Save the updated taskList to localStorage and re-render the task board
+    localStorage.setItem('tasks', JSON.stringify(taskList));
     renderTaskList();
 }
 
@@ -183,11 +203,10 @@ window.addEventListener('click', function(event) {
 $(document).ready(function () {
     renderTaskList();
 
-    // Make lanes droppable for task cards
+    // Make the lanes droppable
     $('.lane').droppable({
         accept: '.task-card',
         drop: handleDrop
-
     });
 });
 
