@@ -159,26 +159,33 @@ function handleDrop(event, ui) {
 function toggleModal() {
     console.log("Toggle")
     if (modal.style.display === 'none') {
-        modal.style.display = 'block';
+      modal.style.display = 'block';
     } else {
-        modal.style.display = 'none';
+      modal.style.display = 'none';
     }
-}
+  }
 
+  //new
 // Event listeners for modal interactions
 btn.addEventListener('click', toggleModal);
 
-if (closeBtn) {
-    closeBtn.addEventListener('click', toggleModal);
-} else {
-    console.error('closeBtn is null. Check if the close button is correctly selected.');
-}
-
+closeBtn.addEventListener('click', toggleModal);
 window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
+  if (event.target === modal) {
+    toggleModal();
+  }
 });
+// if (closeBtn) {
+//     closeBtn.addEventListener('click', toggleModal);
+// } else {
+//     console.error('closeBtn is null. Check if the close button is correctly selected.');
+// }
+
+// window.addEventListener('click', function(event) {
+//     if (event.target === modal) {
+//         toggleModal();
+//     }
+// });
 
 // Document Ready
 $(document).ready(function () {
