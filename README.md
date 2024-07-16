@@ -14,8 +14,8 @@ The purpose of this simple Kanban board titled [Brain Dump](https://ther16h.gith
 - [License](#license)
 
 ## Visuals
-![Screenshot1](./Assets/images/Visual.png)
-![gif1](./Assets/images/Visual2.gif)
+![Screenshot1](./assets/images/Visual1.png)
+![gif1](./assets/images/Visual2(demo).gif)
 
 ## Usage
 Simply type in the title/description/deadline of your task and then you can drag it and drop it based off of how far you are in its specific development.
