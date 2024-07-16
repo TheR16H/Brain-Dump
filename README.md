@@ -18,7 +18,7 @@ The purpose of this simple Kanban board titled [Brain Dump](https://ther16h.gith
 ![gif1](./assets/images/Visual2(demo).gif)
 
 ## Usage
-Simply type in the title/description/deadline of your task and then you can drag it and drop it based off of how far you are in its specific development.
+Simply type in the title/description/deadline of your task and then you can drag it and drop it based off of how far you are in its specific development. ("To Do", "In Progress" or, "Done") and you can then delete any task card as needed.
 
 ## Support
 Find me on [Github](https://github.com/TheR16H) to ask any questions or see any of my other works!
