@@ -25,7 +25,7 @@ Find me on [Github](https://github.com/TheR16H) to ask any questions or see any 
 
 ## Acknowledgements
 - [Jquery docs](https://api.jqueryui.com/draggable/).
-- [Modal](https://getbootstrap.com/docs/5.1/components/modal/)
+- [Modal](https://getbootstrap.com/docs/5.1/components/modal/).
 
 ## License 
 MIT License
