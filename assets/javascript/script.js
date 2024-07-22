@@ -27,13 +27,13 @@ function createTaskCard(task) {
 
     let deadlineClass = '';
     if (daysUntilDeadline < 0) {
-        deadlineClass = 'bg-danger'; // Red for passed deadline
+        deadlineClass = 'bg-danger'; 
     } else if (daysUntilDeadline === 0) {
-        deadlineClass = 'bg-danger'; // Red for today's deadline
+        deadlineClass = 'bg-danger'; // Red for if today is the deadline or if it passed
     } else if (daysUntilDeadline <= 2) {
-        deadlineClass = 'bg-warning'; // Yellow for deadline coming up in 2 days or less
+        deadlineClass = 'bg-warning'; // Yellow for deadline coming up in 2 days.
     } else if (daysUntilDeadline >= 3) {
-    deadlineClass = 'bg-success'; // Green if its 3 or more days out
+    deadlineClass = 'bg-success'; // Green if its 3 or more days out.
 }
 
     const taskCardEl =
