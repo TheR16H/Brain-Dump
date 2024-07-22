@@ -32,7 +32,9 @@ function createTaskCard(task) {
         deadlineClass = 'bg-danger'; // Red for today's deadline
     } else if (daysUntilDeadline <= 2) {
         deadlineClass = 'bg-warning'; // Yellow for deadline coming up in 2 days or less
-    }
+    } else if (daysUntilDeadline >= 3) {
+    deadlineClass = 'bg-success'; // Green if its 3 or more days out
+}
 
     const taskCardEl =
     $(`<div class="task-card card m-4 mt-2 ${deadlineClass}" id=${task.id}>

@@ -2,10 +2,9 @@
 
 ## Description
 The purpose of this simple Kanban board titled [Brain Dump](https://ther16h.github.io/Brain-Dump/) is to so you can type out your objectives / things you need to do in the coming days! 
-- by default each task will appear <b> White. </b>
-- If the deadline is within 2-3 days the task will appear <b>Yellow.</b> 
-- if the deadline is today (or has passed) the task will appear <b> Red </b> so it's easy to differentiate. 
-
+- if the deadline is today (or has passed) the task will appear <b> Red. </b> 
+- If the deadline is within 2 days the task will appear <b>Yellow.</b>
+- But If the deadline is 3 or more days away the task will appear <b> Green. </b>
 ## Table Of Contents
 - [Visuals](#visuals)
 - [Usage](#usage)
