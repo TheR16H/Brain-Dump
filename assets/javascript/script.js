@@ -33,7 +33,7 @@ function createTaskCard(task) {
     } else if (daysUntilDeadline <= 2) {
         deadlineClass = 'bg-warning'; // Yellow for deadline coming up in 2 days.
     } else if (daysUntilDeadline >= 3) {
-    deadlineClass = 'bg-success'; // Green if its 3 or more days out.
+    deadlineClass = 'bg-success'; // Green if it's 3 or more days out.
 }
 
     const taskCardEl =
