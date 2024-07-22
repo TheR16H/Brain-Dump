@@ -2,14 +2,14 @@
 
 ## Description
 The purpose of this simple Kanban board titled [Brain Dump](https://ther16h.github.io/Brain-Dump/) is to so you can type out your objectives / things you need to do in the coming days! 
-- if the deadline is today (or has passed) the task will appear <b> Red. </b> 
-- If the deadline is within 2 days the task will appear <b>Yellow.</b>
-- But If the deadline is 3 or more days away the task will appear <b> Green. </b>
+- if the deadline is today (or has passed) the task will appear <b> Red. </b>🔴
+- If the deadline is within 2 days the task will appear <b>Yellow.</b>🟡
+- If the deadline is 3 or more days away the task will appear <b> Green. </b>🟢
 ## Table Of Contents
 - [Visuals](#visuals)
 - [Usage](#usage)
 - [Support](#support)
-- [Acknowledgements](#acknowledgements)
+- [References](#references)
 - [License](#license)
 
 ## Visuals
@@ -22,7 +22,7 @@ Simply type in the title, description and, deadline of your task and then you ca
 ## Support
 Find me on [Github](https://github.com/TheR16H) to ask any questions or see any of my other works!
 
-## Acknowledgements
+## References
 - [Jquery docs](https://api.jqueryui.com/draggable/).
 - [Modal](https://getbootstrap.com/docs/5.1/components/modal/).
 
